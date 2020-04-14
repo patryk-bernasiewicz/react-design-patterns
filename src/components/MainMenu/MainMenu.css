@@ -1,0 +1,18 @@
+.MainMenu {
+
+}
+
+.MainMenu__list {
+    display: flex;
+    list-style-type: none;
+    margin: 10px 0 20px;
+    padding: 0;
+}
+
+.MainMenu__item {
+}
+
+.MainMenu__link {
+    display: inline-block;
+    padding: 4px 8px;
+}
