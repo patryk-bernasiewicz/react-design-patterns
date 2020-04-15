@@ -4,4 +4,4 @@ Welcome to my Design Patterns playground, where I try to implement different des
 
 ## Creational Patterns
 
-1. [Factory Method](https://github.com/patryk-bernasiewicz/react-design-patterns/tree/master/src/pages/Factory)
+1. [Factory Method](https://github.com/patryk-bernasiewicz/react-design-patterns/tree/master/src/pages/FactoryExample)
