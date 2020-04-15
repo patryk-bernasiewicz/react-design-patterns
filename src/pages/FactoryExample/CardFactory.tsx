@@ -1,18 +1,31 @@
 import React from 'react';
 
-import ProductCard from './ProductCard/ProductCard';
-import CardPerson from './CardPerson/CardPerson';
+import ProductCard, { Props as ProductCardProps } from './ProductCard/ProductCard';
+import PersonCard, { Props as PersonCardProps } from './PersonCard/PersonCard';
 
-import { Item } from './item.interface';
+class CardFactory {
+    static createCard(props: PersonCardProps|ProductCardProps): JSX.Element {
+        switch (props.type) {
+            default:
+            case 'person':
+                {
+                    const propNames = ['type', 'name', 'age'];
+                    const passedProps = CardFactory.filterProps<PersonCardProps>(props, propNames);
+                    return <PersonCard {...passedProps} />;
+                }
+            case 'product':
+                {
+                    const propNames = ['type', 'name', 'price'];
+                    const passedProps = CardFactory.filterProps<ProductCardProps>(props, propNames);
+                    return <ProductCard {...passedProps} />;
+                }
+        }
+    }
 
-function CardFactory(props: Item): JSX.Element {
-    switch (props.type) {
-        case 'person':
-            return <CardPerson {...props} />;
-        case 'product':
-            return <ProductCard {...props} />;
-        default:
-            return <CardPerson {...props} />;
+    static filterProps<T>(props: PersonCardProps|ProductCardProps, propNames: string[]): T {
+        const obj: { [x: string]: string|number } = {};
+        propNames.forEach((propName: string) => obj[propName] = props[propName]);
+        return obj as unknown as T;
     }
 }
 

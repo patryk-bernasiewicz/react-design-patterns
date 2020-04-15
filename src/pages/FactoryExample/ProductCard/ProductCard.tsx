@@ -1,26 +1,25 @@
 import React from 'react';
 import Card from '../Card/Card';
 
-import image from './product-realise.png';
+import image from './product-placeholder.png';
 
-interface Props {
+export interface Props {
+    [x: string]: string|number;
     type: string;
     name: string;
-    price?: number;
+    price: number;
 }
 
 function formatPrice(price: number): string {
-    return price.toString().replace('.', ',');
+    return '$' + price.toString().replace('.', ',');
 }
 
-function ProductCard(props: Props): JSX.Element {
+function ProductCard({ type, name, price }: Props): JSX.Element {
     return (
-        <Card type={props.type}>
-            <img src={image} alt={`Product - ${props.name}`} />
-            <h3>{props.name}</h3>
-            {props.price && (
-                <div>{formatPrice(props.price)}</div>
-            )}
+        <Card type={type}>
+            <img src={image} alt={`Product - ${name}`} />
+            <h3>{name}</h3>
+            <div>{formatPrice(price)}</div>
         </Card>
     );
 }
