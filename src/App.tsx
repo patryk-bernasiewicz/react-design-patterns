@@ -5,16 +5,18 @@ import {
   Route
 } from 'react-router-dom';
 
-import FactoryExample from './pages/Factory/FactoryExample';
+import FactoryExample from './pages/FactoryExample/FactoryExample';
 import MainMenu from './components/MainMenu/MainMenu';
 
-function App() {
+function App(): JSX.Element {
   return (
     <Router>
       <div className="App">
         <MainMenu />
         <Switch>
-          <Route path="/factory" component={FactoryExample} />
+          <Route path="/factory">
+            <FactoryExample />
+          </Route>
           <Route path="/" exact>
             <div>Choose something from menu above</div>
           </Route>

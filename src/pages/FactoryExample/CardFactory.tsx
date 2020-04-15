@@ -1,14 +1,16 @@
 import React from 'react';
 
-import CardProduct from './CardProduct/CardProduct';
+import ProductCard from './ProductCard/ProductCard';
 import CardPerson from './CardPerson/CardPerson';
 
-function CardFactory(props) {
+import { Item } from './item.interface';
+
+function CardFactory(props: Item): JSX.Element {
     switch (props.type) {
         case 'person':
             return <CardPerson {...props} />;
         case 'product':
-            return <CardProduct {...props} />;
+            return <ProductCard {...props} />;
         default:
             return <CardPerson {...props} />;
     }

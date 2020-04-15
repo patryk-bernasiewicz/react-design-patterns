@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainMenu.css';
 
-function MainMenu() {
+function MainMenu(): JSX.Element {
     return (
         <nav className="MainMenu">
             <ul className="MainMenu__list">
